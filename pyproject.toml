@@ -1,0 +1,35 @@
+[build-system]
+requires = ["uv_build>=0.12.21,<0.13"]
+build-backend = "uv_build"
+
+[project]
+name = "qrcode-from-scratch"
+version = "0.1.0"
+description = "Décodage pédagogique d'un QR code (version 2, mode octets), de l'image au texte"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pillow>=10",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel",
+    "nbconvert",
+    "opencv-python-headless",
+    "pytest",
+    "qrcode[pil]>=7.4",
+    "reedsolo>=1.7",
+    "ruff>=0.16.10",
+    "segno>=1.6",
+]
+
+[tool.uv.build-backend]
+module-name = "basic_qrcode"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
