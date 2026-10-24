@@ -1,13 +1,14 @@
 version: 2
+multi-ecosystem-groups:
+  all-dependencies:
+    schedule:
+      interval: "monthly"
 updates:
   - package-ecosystem: "uv"
     directory: "/"
-    schedule:
-      interval: "monthly"
-    groups:
-      python-deps:
-        patterns: ["*"]
+    patterns: ["*"]
+    multi-ecosystem-group: "all-dependencies"
   - package-ecosystem: "github-actions"
     directory: "/"
-    schedule:
-      interval: "monthly"
+    patterns: ["*"]
+    multi-ecosystem-group: "all-dependencies"
