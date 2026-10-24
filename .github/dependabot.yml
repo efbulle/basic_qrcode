@@ -1,14 +1,29 @@
 version: 2
-multi-ecosystem-groups:
-  all-dependencies:
-    schedule:
-      interval: "monthly"
 updates:
-  - package-ecosystem: "uv"
-    directory: "/"
-    patterns: ["*"]
-    multi-ecosystem-group: "all-dependencies"
   - package-ecosystem: "github-actions"
     directory: "/"
-    patterns: ["*"]
-    multi-ecosystem-group: "all-dependencies"
+    schedule:
+      interval: "monthly"
+    groups:
+      all-github-actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      github-actions-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      all-python-dependencies:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      python-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
