@@ -20,6 +20,7 @@ dev = [
     "ipykernel",
     "nbconvert",
     "opencv-python-headless",
+    "pyright",
     "pytest",
     "qrcode[pil]>=7.4",
     "reedsolo>=1.7",
@@ -29,6 +30,9 @@ dev = [
 
 [tool.uv.build-backend]
 module-name = "basic_qrcode"
+
+[tool.pyright]
+typeCheckingMode = "standard"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
